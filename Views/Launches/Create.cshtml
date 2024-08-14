@@ -1,0 +1,66 @@
+﻿@model IronDome2.Models.Launch
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Launch</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Src_lat" class="control-label"></label>
+                <input asp-for="Src_lat" class="form-control" />
+                <span asp-validation-for="Src_lat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Src_lng" class="control-label"></label>
+                <input asp-for="Src_lng" class="form-control" />
+                <span asp-validation-for="Src_lng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dst_lat" class="control-label"></label>
+                <input asp-for="Dst_lat" class="form-control" />
+                <span asp-validation-for="Dst_lat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dst_lng" class="control-label"></label>
+                <input asp-for="Dst_lng" class="form-control" />
+                <span asp-validation-for="Dst_lng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LaunchTime" class="control-label"></label>
+                <input asp-for="LaunchTime" class="form-control" />
+                <span asp-validation-for="LaunchTime" class="text-danger"></span>
+            </div>
+
+            <h4>Weapons</h4>
+            <div id="threat-container">
+                <div class="form-group">
+                    <label for="Threats_0__Weapon" class="control-label">Threat Name</label>
+                    <input name="Threats[0].Weapon" class="form-control" />
+                    <span asp-validation-for="Threats[0].Weapon" class="text-danger"></span>
+                </div>
+            </div>
+            <button type="button" id="add-threat" class="btn btn-secondary">Add Another Threat</button>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script src="~/js/LaunchCreate.js"></script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<IronDome2.Models.Launch>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Src_lat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Src_lng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dst_lat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dst_lng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LaunchTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Src_lat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Src_lng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dst_lat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dst_lng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LaunchTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
